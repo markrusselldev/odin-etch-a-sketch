@@ -2,21 +2,27 @@ html {
   font-size: 62.5%;
 }
 body {
-  height: 100vh;
+  /* height: 100vh; */
   font-size: 1.6rem;
+}
+.header {
+  margin: 0 auto;
+  text-align: center;
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25%;
-  grid-template-rows: 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25%;
+  margin: 0 auto;
+  max-width: 1400px;
   background-color: #2196f3;
   padding: 10px;
+  /* defaults: overridden by inline styles added with js */
+  grid-template-columns: repeat(16, minmax(1px, 1fr));
+  grid-template-rows: repeat(16, minmax(1px, 1fr));
 }
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
   text-align: center;
+  font-size: 8px;
 }
