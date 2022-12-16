@@ -1,6 +1,12 @@
 // defaults
 let gridSize = 256;
-//let userChoice = 16;
+
+// functions
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
 
 function addGridEventListeners() {
   // add event listeners to .grid-item divs
@@ -26,6 +32,7 @@ function displayGrid(gridSize) {
     box.classList.add("grid-item");
     box.textContent = i + 1;
     //box.innerHTML = "&nbsp;";
+
     container.appendChild(box);
   }
   addGridEventListeners();
@@ -41,13 +48,14 @@ function setUserChoice() {
   while (userChoice === null || isNaN(userChoice) || userChoice < 1 || userChoice > 100) {
     userChoice = prompt("Please enter a whole number only, 1 through 100.");
   }
-  gridSize = 0;
   gridSize = userChoice * userChoice;
 
   // add inline style to container based on userChoice
   container.style.cssText = `grid-template-columns:repeat(${userChoice}, minmax(1px, 1fr));
   grid-template-rows:repeat(${userChoice}, minmax(1px, 1fr));
   `;
+  // remove previous grid, display user choice grid
+  removeAllChildNodes(container);
   document.querySelector("#grid-container").innerHTML = displayGrid(gridSize);
 }
 
