@@ -30,9 +30,7 @@ function displayGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
     const box = document.createElement("div");
     box.classList.add("grid-item");
-    box.textContent = i + 1;
-    //box.innerHTML = "&nbsp;";
-
+    //box.textContent = i + 1;
     container.appendChild(box);
   }
   addGridEventListeners();
