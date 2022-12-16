@@ -30,7 +30,7 @@ function displayGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
     const box = document.createElement("div");
     box.classList.add("grid-item");
-    //box.textContent = i + 1;
+    //box.textContent = i + 1; // numbers for testing the grid
     container.appendChild(box);
   }
   addGridEventListeners();
@@ -42,16 +42,17 @@ function getUserChoice() {
 
 function setUserChoice() {
   let userChoice = getUserChoice();
-  // keep prompting until we get a whole number between 1-100
-  while (userChoice === null || isNaN(userChoice) || userChoice < 1 || userChoice > 100 || userChoice % 1 != 0) {
+  // keep prompting until we get a whole number between 1-100, unless cancelled
+  if (userChoice === null) return;
+  while (userChoice === "" || isNaN(userChoice) || userChoice < 1 || userChoice > 100 || userChoice % 1 != 0) {
+    if (userChoice === null) return;
     userChoice = prompt("Please enter a whole number only, 1 through 100.");
   }
-  gridSize = userChoice * userChoice;
-
+  gridSize = Number(userChoice) * Number(userChoice);
   // add inline style to container based on userChoice
   container.style.cssText = `grid-template-columns:repeat(${userChoice}, minmax(1px, 1fr));
-  grid-template-rows:repeat(${userChoice}, minmax(1px, 1fr));
-  `;
+      grid-template-rows:repeat(${userChoice}, minmax(1px, 1fr));
+    `;
   // remove previous grid, display user choice grid
   removeAllChildNodes(container);
   document.querySelector("#grid-container").innerHTML = displayGrid(gridSize);
