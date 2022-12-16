@@ -70,7 +70,7 @@ container.classList.add("grid-container");
 // .btn-resize: a button for our prompt
 const buttonResize = document.createElement("button");
 buttonResize.classList.add("btn-resize");
-buttonResize.textContent = "Resize";
+buttonResize.textContent = "Resize Grid";
 buttonResize.onclick = setUserChoice;
 
 // add .header to body
