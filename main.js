@@ -42,8 +42,8 @@ function getUserChoice() {
 
 function setUserChoice() {
   let userChoice = getUserChoice();
-  // keep prompting until we get a number between 1-100
-  while (userChoice === null || isNaN(userChoice) || userChoice < 1 || userChoice > 100) {
+  // keep prompting until we get a whole number between 1-100
+  while (userChoice === null || isNaN(userChoice) || userChoice < 1 || userChoice > 100 || userChoice % 1 != 0) {
     userChoice = prompt("Please enter a whole number only, 1 through 100.");
   }
   gridSize = userChoice * userChoice;
