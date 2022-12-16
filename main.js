@@ -13,7 +13,7 @@ function addGridEventListeners() {
   const gridItems = document.querySelectorAll(".grid-item");
   // .forEach method to iterate through each button
   gridItems.forEach(item => {
-    // for each one we add a 'click' listener
+    // for each one we add an event listener
     item.addEventListener("mouseover", () => {
       item.style.opacity = 0.5;
     });
